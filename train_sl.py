@@ -5,6 +5,7 @@ import os.path as osp
 import sys
 import time
 import torch
+# torch.backends.cudnn.benchmark = False
 import math
 import numpy as np
 import torch.nn as nn
@@ -13,7 +14,7 @@ from ray import tune
 from cords.selectionstrategies.helpers.ssl_lib.param_scheduler import scheduler as step_scheduler
 from cords.utils.data.data_utils import WeightedSubset
 from cords.utils.data.dataloader.SL.adaptive import GLISTERDataLoader, AdaptiveRandomDataLoader, StochasticGreedyDataLoader,\
-    CRAIGDataLoader, GradMatchDataLoader, RandomDataLoader, WeightedRandomDataLoader, MILODataLoader, SELCONDataLoader
+    CRAIGDataLoader, GradMatchDataLoader, RandomDataLoader, WeightedRandomDataLoader, MILODataLoader, SELCONDataLoader, SIRCDataLoader, SubmodularDataLoader, SubmlDataLoader
 from cords.utils.data.dataloader.SL.nonadaptive import FacLocDataLoader, MILOFixedDataLoader
 from cords.utils.data.datasets.SL import gen_dataset
 from cords.utils.models import *
@@ -49,10 +50,10 @@ class TrainClassifier:
         now = datetime.now()
         current_time = now.strftime("%y/%m/%d %H:%M:%S")
         self.logger = logging.getLogger(__name__+"  " + current_time)
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(logging.DEBUG)
         s_handler = logging.StreamHandler(stream=sys.stdout)
         s_handler.setFormatter(plain_formatter)
-        s_handler.setLevel(logging.INFO)
+        s_handler.setLevel(logging.DEBUG)
         self.logger.addHandler(s_handler)
         f_handler = logging.FileHandler(os.path.join(all_logs_dir, self.cfg.dataset.name + "_" +
                                                      self.cfg.dss_args.type + ".log"), mode='w')
@@ -539,6 +540,54 @@ class TrainClassifier:
                                            shuffle=self.cfg.dataloader.shuffle,
                                            pin_memory=self.cfg.dataloader.pin_memory)
 
+        elif self.cfg.dss_args.type in ['SIRC']:
+            """
+            ############################## SIRC Dataloader Additional Arguments ##############################
+            """
+            self.cfg.dss_args.model = model
+            self.cfg.dss_args.loss = criterion_nored
+            self.cfg.dss_args.eta = self.cfg.optimizer.lr
+            self.cfg.dss_args.num_classes = self.cfg.model.numclasses
+            self.cfg.dss_args.num_epochs = self.cfg.train_args.num_epochs
+            self.cfg.dss_args.device = self.cfg.train_args.device
+            dataloader = SIRCDataLoader(trainloader, valloader, self.cfg.dss_args, logger,
+                                           batch_size=self.cfg.dataloader.batch_size,
+                                           shuffle=self.cfg.dataloader.shuffle,
+                                           pin_memory=self.cfg.dataloader.pin_memory,
+                                           collate_fn = self.cfg.dss_args.collate_fn)
+            
+        elif self.cfg.dss_args.type in ['Submodular']:
+            """
+            ############################## Submodular Dataloader Additional Arguments ##############################
+            """
+            self.cfg.dss_args.model = model
+            self.cfg.dss_args.loss = criterion_nored
+            self.cfg.dss_args.eta = self.cfg.optimizer.lr
+            self.cfg.dss_args.num_classes = self.cfg.model.numclasses
+            self.cfg.dss_args.num_epochs = self.cfg.train_args.num_epochs
+            self.cfg.dss_args.device = self.cfg.train_args.device
+            dataloader = SubmodularDataLoader(trainloader, valloader, self.cfg.dss_args, logger,
+                                           batch_size=self.cfg.dataloader.batch_size,
+                                           shuffle=self.cfg.dataloader.shuffle,
+                                           pin_memory=self.cfg.dataloader.pin_memory,
+                                           collate_fn = self.cfg.dss_args.collate_fn)
+        
+        elif self.cfg.dss_args.type in ['Subml']:
+            """
+            ############################## Submodular Dataloader Additional Arguments ##############################
+            """
+            self.cfg.dss_args.model = model
+            self.cfg.dss_args.loss = criterion_nored
+            self.cfg.dss_args.eta = self.cfg.optimizer.lr
+            self.cfg.dss_args.num_classes = self.cfg.model.numclasses
+            self.cfg.dss_args.num_epochs = self.cfg.train_args.num_epochs
+            self.cfg.dss_args.device = self.cfg.train_args.device
+            dataloader = SubmlDataLoader(trainloader, valloader, self.cfg.dss_args, logger,
+                                           batch_size=self.cfg.dataloader.batch_size,
+                                           shuffle=self.cfg.dataloader.shuffle,
+                                           pin_memory=self.cfg.dataloader.pin_memory,
+                                           collate_fn = self.cfg.dss_args.collate_fn)
+        
         else:
             raise NotImplementedError
 
@@ -613,7 +662,7 @@ class TrainClassifier:
                                               targets.to(self.cfg.train_args.device, non_blocking=True)
                             outputs = model(inputs)
                             loss = criterion(outputs, targets)
-                            trn_loss += (loss.item() * train_eval_loader.batch_size)
+                            trn_loss += (loss.item() * trainloader.batch_size)
                             samples += targets.shape[0]
                             if "trn_acc" in print_args:
                                 if is_selcon: predicted = outputs
@@ -640,7 +689,7 @@ class TrainClassifier:
                                               targets.to(self.cfg.train_args.device, non_blocking=True)
                             outputs = model(inputs)
                             loss = criterion(outputs, targets)
-                            val_loss += (loss.item() * val_eval_loader.batch_size)
+                            val_loss += (loss.item() * valloader.batch_size)
                             samples += targets.shape[0]
                             if "val_acc" in print_args:
                                 if is_selcon: predicted = outputs
@@ -668,7 +717,7 @@ class TrainClassifier:
                                               targets.to(self.cfg.train_args.device, non_blocking=True)
                             outputs = model(inputs)
                             loss = criterion(outputs, targets)
-                            tst_loss += (loss.item() * test_eval_loader.batch_size)
+                            tst_loss += (loss.item() * testloader.batch_size)
                             samples += targets.shape[0]
                             if "tst_acc" in print_args:
                                 if is_selcon: predicted = outputs

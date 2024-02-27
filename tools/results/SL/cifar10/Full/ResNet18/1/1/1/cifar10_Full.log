@@ -1,0 +1,41 @@
+[10/19 23:24:25] train_sl  23/10/19 23:23:51 INFO: Epoch: 0 , Training Loss: 0.20071466249408143 , Training Accuracy: 0.10024242424242424 , Test Loss: 0.18879923706054688 , Test Accuracy: 0.0999 , Best Accuracy: 0.0999 , Timing: 0
+[10/19 23:31:34] train_sl  23/10/19 23:23:51 INFO: Epoch: 10 , Training Loss: 0.020131259109034683 , Training Accuracy: 0.8634141414141414 , Test Loss: 0.02546282615661621 , Test Accuracy: 0.8317 , Best Accuracy: 0.8317 , Timing: 399.1958477497101
+[10/19 23:38:15] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 20
+[10/19 23:38:45] train_sl  23/10/19 23:23:51 INFO: Epoch: 20 , Training Loss: 0.01598170640733507 , Training Accuracy: 0.8925858585858586 , Test Loss: 0.022584062957763672 , Test Accuracy: 0.8557 , Best Accuracy: 0.8557 , Timing: 800.0986053943634
+[10/19 23:45:53] train_sl  23/10/19 23:23:51 INFO: Epoch: 30 , Training Loss: 0.013595782771255031 , Training Accuracy: 0.9081010101010101 , Test Loss: 0.020189178085327147 , Test Accuracy: 0.8702 , Best Accuracy: 0.8702 , Timing: 1199.3878684043884
+[10/19 23:52:32] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 40
+[10/19 23:53:02] train_sl  23/10/19 23:23:51 INFO: Epoch: 40 , Training Loss: 0.011473763899369674 , Training Accuracy: 0.9254343434343434 , Test Loss: 0.018972705078125 , Test Accuracy: 0.8836 , Best Accuracy: 0.8836 , Timing: 1597.2319962978363
+[10/20 00:00:07] train_sl  23/10/19 23:23:51 INFO: Epoch: 50 , Training Loss: 0.013836039263792713 , Training Accuracy: 0.9112929292929293 , Test Loss: 0.021089449310302735 , Test Accuracy: 0.872 , Best Accuracy: 0.8836 , Timing: 1992.6920228004456
+[10/20 00:06:42] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 60
+[10/20 00:07:11] train_sl  23/10/19 23:23:51 INFO: Epoch: 60 , Training Loss: 0.008264910418577869 , Training Accuracy: 0.9452727272727273 , Test Loss: 0.01695092658996582 , Test Accuracy: 0.8951 , Best Accuracy: 0.8951 , Timing: 2387.1360778808594
+[10/20 00:14:16] train_sl  23/10/19 23:23:51 INFO: Epoch: 70 , Training Loss: 0.008863591897367226 , Training Accuracy: 0.9426666666666667 , Test Loss: 0.018060921478271486 , Test Accuracy: 0.8904 , Best Accuracy: 0.8951 , Timing: 2782.6307916641235
+[10/20 00:20:49] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 80
+[10/20 00:21:19] train_sl  23/10/19 23:23:51 INFO: Epoch: 80 , Training Loss: 0.007953194820519649 , Training Accuracy: 0.9482424242424242 , Test Loss: 0.016644464492797852 , Test Accuracy: 0.8995 , Best Accuracy: 0.8995 , Timing: 3174.274478197098
+[10/20 00:28:26] train_sl  23/10/19 23:23:51 INFO: Epoch: 90 , Training Loss: 0.007046643266774187 , Training Accuracy: 0.9528484848484848 , Test Loss: 0.016663899993896485 , Test Accuracy: 0.8992 , Best Accuracy: 0.8995 , Timing: 3571.915027618408
+[10/20 00:34:58] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 100
+[10/20 00:35:31] train_sl  23/10/19 23:23:51 INFO: Epoch: 100 , Training Loss: 0.005112427778918334 , Training Accuracy: 0.9664040404040404 , Test Loss: 0.015520261764526368 , Test Accuracy: 0.9086 , Best Accuracy: 0.9086 , Timing: 3963.558822154999
+[10/20 00:42:36] train_sl  23/10/19 23:23:51 INFO: Epoch: 110 , Training Loss: 0.003956631525598391 , Training Accuracy: 0.9745454545454545 , Test Loss: 0.014549232482910157 , Test Accuracy: 0.9194 , Best Accuracy: 0.9194 , Timing: 4359.721852064133
+[10/20 00:49:09] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 120
+[10/20 00:49:39] train_sl  23/10/19 23:23:51 INFO: Epoch: 120 , Training Loss: 0.003747912214259909 , Training Accuracy: 0.9764040404040404 , Test Loss: 0.014128836822509766 , Test Accuracy: 0.9221 , Best Accuracy: 0.9221 , Timing: 4752.418550252914
+[10/20 00:56:42] train_sl  23/10/19 23:23:51 INFO: Epoch: 130 , Training Loss: 0.0019735341601901583 , Training Accuracy: 0.9874545454545455 , Test Loss: 0.012975945091247559 , Test Accuracy: 0.9327 , Best Accuracy: 0.9327 , Timing: 5145.917833328247
+[10/20 01:03:16] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 140
+[10/20 01:03:45] train_sl  23/10/19 23:23:51 INFO: Epoch: 140 , Training Loss: 0.00183659755822384 , Training Accuracy: 0.9884646464646465 , Test Loss: 0.013349768829345703 , Test Accuracy: 0.9316 , Best Accuracy: 0.9327 , Timing: 5538.83137845993
+[10/20 01:10:52] train_sl  23/10/19 23:23:51 INFO: Epoch: 150 , Training Loss: 0.0006410212035130973 , Training Accuracy: 0.9963838383838384 , Test Loss: 0.01299770736694336 , Test Accuracy: 0.9353 , Best Accuracy: 0.9353 , Timing: 5933.033672094345
+[10/20 01:17:27] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 160
+[10/20 01:17:57] train_sl  23/10/19 23:23:51 INFO: Epoch: 160 , Training Loss: 0.0001388280780026407 , Training Accuracy: 0.9996767676767677 , Test Loss: 0.01105124740600586 , Test Accuracy: 0.946 , Best Accuracy: 0.946 , Timing: 6327.339664936066
+[10/20 01:24:59] train_sl  23/10/19 23:23:51 INFO: Epoch: 170 , Training Loss: 6.365624913061508e-05 , Training Accuracy: 0.999979797979798 , Test Loss: 0.009646308517456055 , Test Accuracy: 0.9533 , Best Accuracy: 0.9533 , Timing: 6720.717133522034
+[10/20 01:31:33] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 180
+[10/20 01:32:02] train_sl  23/10/19 23:23:51 INFO: Epoch: 180 , Training Loss: 6.0795575982392434e-05 , Training Accuracy: 0.999979797979798 , Test Loss: 0.009357444190979005 , Test Accuracy: 0.9551 , Best Accuracy: 0.9551 , Timing: 7113.371542930603
+[10/20 01:39:09] train_sl  23/10/19 23:23:51 INFO: Epoch: 190 , Training Loss: 6.159500341222743e-05 , Training Accuracy: 1.0 , Test Loss: 0.009247840690612793 , Test Accuracy: 0.9547 , Best Accuracy: 0.9551 , Timing: 7507.812143087387
+[10/20 01:45:53] train_sl  23/10/19 23:23:51 INFO: Model checkpoint saved at epoch: 200
+[10/20 01:46:22] train_sl  23/10/19 23:23:51 INFO: Epoch: 200 , Training Loss: 6.093350986037591e-05 , Training Accuracy: 1.0 , Test Loss: 0.009273194885253907 , Test Accuracy: 0.9552 , Best Accuracy: 0.9552 , Timing: 7910.479796409607
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: Full Selection Run---------------------------------
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: Final SubsetTrn: 0.603279
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: Test Loss: 0.01, Test Accuracy: 0.96, Best Accuracy: 0.96
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: ---------------------------------------------------------------------
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: Full
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: ---------------------------------------------------------------------
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: Test Accuracy: 0.0999 , 0.8317 , 0.8557 , 0.8702 , 0.8836 , 0.872 , 0.8951 , 0.8904 , 0.8995 , 0.8992 , 0.9086 , 0.9194 , 0.9221 , 0.9327 , 0.9316 , 0.9353 , 0.946 , 0.9533 , 0.9551 , 0.9547 , 0.9552
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: Best Accuracy: 0.0999 , 0.8317 , 0.8557 , 0.8702 , 0.8836 , 0.8836 , 0.8951 , 0.8951 , 0.8995 , 0.8995 , 0.9086 , 0.9194 , 0.9221 , 0.9327 , 0.9327 , 0.9353 , 0.946 , 0.9533 , 0.9551 , 0.9551 , 0.9552
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: Time: 0 , 399.1958477497101 , 800.0986053943634 , 1199.3878684043884 , 1597.2319962978363 , 1992.6920228004456 , 2387.1360778808594 , 2782.6307916641235 , 3174.274478197098 , 3571.915027618408 , 3963.558822154999 , 4359.721852064133 , 4752.418550252914 , 5145.917833328247 , 5538.83137845993 , 5933.033672094345 , 6327.339664936066 , 6720.717133522034 , 7113.371542930603 , 7507.812143087387 , 7910.479796409607
+[10/20 01:47:02] train_sl  23/10/19 23:23:51 INFO: Total time taken by Full = 7910.4798 

@@ -1,5 +1,6 @@
 import apricot
 import numpy as np
+import time
 import torch
 import torch.nn.functional as F
 from scipy.sparse import csr_matrix
@@ -38,14 +39,15 @@ class SubmodularSelectionStrategy(DataSelectionStrategy):
     """
 
     def __init__(self, trainloader, valloader, model, loss,
-                 device, num_classes, linear_layer, if_convex, selection_type, submod_func_type, optimizer):
+                 device, num_classes, linear_layer, if_convex, selection_type, submod_func_type, logger, optimizer):
         """
         Constructer method
         """
-        super().__init__(trainloader, valloader, model, num_classes, linear_layer, loss, device)
+        super().__init__(trainloader, valloader, model, num_classes, linear_layer, loss, device, logger)
         self.if_convex = if_convex
         self.selection_type = selection_type
         self.submod_func_type = submod_func_type
+        self.logger = logger
         self.optimizer = optimizer
 
     def distance(self, x, y, exp=2):
@@ -221,7 +223,7 @@ class SubmodularSelectionStrategy(DataSelectionStrategy):
         gammas: list
             List containing gradients of datapoints present in greedySet
         """
-
+        start_time = time.time()
         for batch_idx, (inputs, targets) in enumerate(self.trainloader):
             if batch_idx == 0:
                 x_trn, labels = inputs, targets
@@ -297,4 +299,6 @@ class SubmodularSelectionStrategy(DataSelectionStrategy):
             sim_sub = fl.fit_transform(sparse_simmat)
             total_greedy_list = list(np.array(np.argmax(sim_sub, axis=1)).reshape(-1))
             gammas = self.compute_gamma(total_greedy_list)
+            end_time = time.time()
+            self.logger.debug("Submodular strategy data selection time is: %.4f", end_time-start_time)
         return total_greedy_list, gammas

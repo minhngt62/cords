@@ -32,7 +32,7 @@ class DSSDataLoader:
         """
         assert "fraction" in dss_args.keys(), "'fraction' is a compulsory argument. Include it as a key in dss_args"
         if (dss_args.fraction > 1) or (dss_args.fraction<0):
-             raise ValueError("'fraction' should lie between 0 and 1")
+             raise ValueError("'fraction' should lie between 0 and  1")
 
         self.fraction = dss_args.fraction
         self.budget = int(self.len_full * self.fraction)

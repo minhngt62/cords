@@ -9,3 +9,6 @@ from .adapweightsdataloader import AdapWeightsDataLoader
 from .weightedrandomdataloader import WeightedRandomDataLoader
 from .stochasticgreedydataloader import StochasticGreedyDataLoader
 from .milodataloader import MILODataLoader
+from .sircdataloader import SIRCDataLoader
+from .submodulardataloader import SubmodularDataLoader
+from .submldataloader import SubmlDataLoader

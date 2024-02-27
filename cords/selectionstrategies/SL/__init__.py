@@ -3,9 +3,11 @@ from .dataselectionstrategy import DataSelectionStrategy
 from .glisterstrategy import GLISTERStrategy
 from .randomstrategy import RandomStrategy
 from .submodularselectionstrategy import SubmodularSelectionStrategy
+from .submodularstrategy import SubmodularStrategy
 from .gradmatchstrategy import GradMatchStrategy
 from .fixedweightstrategy import FixedWeightStrategy
 from .selconstrategy import SELCONstrategy
 from .adapweightsstrategy import AdapWeightsStrategy
 from .stochasticgreedyexplorationstrategy import StochasticGreedyExplorationStrategy
 from .weightedrandomexplorationstrategy import WeightedRandomExplorationStrategy
+from .sircstrategy import SIRCStrategy
